@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Atmosphère — Weather Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <div class="container">
+
+    <header class="header">
+      <p class="tagline">Real-time weather, beautifully presented</p>
+      <h1 class="logo">Atmosphère</h1>
+    </header>
+
+    <div class="search-wrapper">
+      <div class="search-box">
+        <span class="search-icon">⌖</span>
+        <input
+          type="text"
+          id="cityInput"
+          placeholder="Enter a city name…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button id="searchBtn">Search</button>
+      </div>
+      <p class="error-msg" id="errorMsg"></p>
+    </div>
+
+    <div class="weather-card" id="weatherCard">
+      <div class="card-top">
+        <div class="location-block">
+          <h2 class="city-name" id="cityName">—</h2>
+          <p class="country" id="country"></p>
+        </div>
+        <div class="weather-icon-wrap">
+          <img id="weatherIcon" src="" alt="weather icon" />
+        </div>
+      </div>
+
+      <div class="temp-block">
+        <span class="temp-value" id="temperature">—</span>
+        <span class="temp-unit">°C</span>
+      </div>
+
+      <p class="condition-label" id="condition">—</p>
+
+      <div class="divider"></div>
+
+      <div class="stats-grid">
+        <div class="stat">
+          <span class="stat-icon">💧</span>
+          <div class="stat-info">
+            <span class="stat-value" id="humidity">—</span>
+            <span class="stat-label">Humidity</span>
+          </div>
+        </div>
+        <div class="stat">
+          <span class="stat-icon">🌬️</span>
+          <div class="stat-info">
+            <span class="stat-value" id="windSpeed">—</span>
+            <span class="stat-label">Wind</span>
+          </div>
+        </div>
+        <div class="stat">
+          <span class="stat-icon">👁️</span>
+          <div class="stat-info">
+            <span class="stat-value" id="visibility">—</span>
+            <span class="stat-label">Visibility</span>
+          </div>
+        </div>
+        <div class="stat">
+          <span class="stat-icon">🌡️</span>
+          <div class="stat-info">
+            <span class="stat-value" id="feelsLike">—</span>
+            <span class="stat-label">Feels Like</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="updated-at" id="updatedAt"></p>
+    </div>
+
+    <div class="loader" id="loader">
+      <div class="spinner"></div>
+      <p>Fetching skies…</p>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -61,7 +61,7 @@ async function fetchWeather(city) {
     return;
   }
 
-  const url = `${BASE_URL}?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=metric`;
+  const BASE_URL = "https://api.openweathermap.org/data/2.5/weather";
 
   try {
     const response = await fetch(url);

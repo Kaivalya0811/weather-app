@@ -9,7 +9,7 @@
 //
 // ============================================================
 
-const API_KEY = 'c599d2975e1c0555d60c93125140f1ca'; // <-- Replace with your OpenWeatherMap key
+const API_KEY = 'd9f681090e08dc5bc360d78ae48271b2'; // <-- Replace with your OpenWeatherMap key
 const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
 // ── DOM References ──────────────────────────────────────────

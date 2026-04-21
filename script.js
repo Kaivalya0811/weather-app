@@ -1,15 +1,8 @@
 // ============================================================
 //  Atmosphère — Weather Dashboard | script.js
 // ============================================================
-//
-//  HOW TO USE:
-//  1. Get a free API key at https://openweathermap.org/api
-//  2. Replace the placeholder below with your actual key.
-//  3. Open index.html in a browser and search for any city!
-//
-// ============================================================
 
-const API_KEY = 'd9f681090e08dc5bc360d78ae48271b2'; // <-- Replace with your OpenWeatherMap key
+const API_KEY = 'd9f681090e08dc5bc360d78ae48271b2'; // <-- paste your real key here
 const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
 // ── DOM References ──────────────────────────────────────────
@@ -49,19 +42,14 @@ function handleSearch() {
   fetchWeather(city);
 }
 
-// ── Fetch Weather from OpenWeatherMap ────────────────────────
+// ── Fetch Weather from API ───────────────────────────────────
 async function fetchWeather(city) {
   showLoader(true);
   hideError();
   hideCard();
 
-  if (API_KEY === 'YOUR_API_KEY_HERE') {
-    showLoader(false);
-    showError('⚠ Please add your OpenWeatherMap API key in script.js');
-    return;
-  }
-
-  const BASE_URL = "https://api.openweathermap.org/data/2.5/weather";
+  // ✅ FIXED: URL properly defined
+  const url = `${BASE_URL}?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=metric`;
 
   try {
     const response = await fetch(url);
@@ -106,11 +94,9 @@ function renderWeather(data) {
   visibilityEl.textContent = visibility ? `${(visibility / 1000).toFixed(1)} km` : 'N/A';
   feelsLikeEl.textContent  = `${Math.round(feels_like)}°C`;
 
-  // Weather icon from OpenWeatherMap
   weatherIcon.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
   weatherIcon.alt = description;
 
-  // Timestamp
   const now = new Date();
   updatedAtEl.textContent = `Updated at ${now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
 
